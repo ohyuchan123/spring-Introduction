@@ -22,9 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class MemberServiceIntegrationTest {
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
-
     @Test
-    void join() throws Exception {
+    public void 회원가입() throws Exception {
         //Given
         Member member = new Member();
         member.setName("hello");
@@ -34,9 +33,8 @@ class MemberServiceIntegrationTest {
         Member findMember = memberRepository.findById(saveId).get();
         assertEquals(member.getName(), findMember.getName());
     }
-
     @Test
-    void findMember() throws Exception {
+    public void 중복_회원_예외() throws Exception {
         //Given
         Member member1 = new Member();
         member1.setName("spring");
